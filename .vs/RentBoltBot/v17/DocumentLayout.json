@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\DenysBorysenko\\source\\repos\\RentBoltBot\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EDE44A6A-315C-4F86-A6FF-3E9E042E1798}|BoltBot\\BoltBot.csproj|c:\\users\\denysborysenko\\source\\repos\\rentboltbot\\boltbot\\botservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDE44A6A-315C-4F86-A6FF-3E9E042E1798}|BoltBot\\BoltBot.csproj|solutionrelative:boltbot\\botservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EDE44A6A-315C-4F86-A6FF-3E9E042E1798}|BoltBot\\BoltBot.csproj|c:\\users\\denysborysenko\\source\\repos\\rentboltbot\\boltbot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EDE44A6A-315C-4F86-A6FF-3E9E042E1798}|BoltBot\\BoltBot.csproj|solutionrelative:boltbot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -23,12 +27,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BotService.cs",
+              "DocumentMoniker": "C:\\Users\\DenysBorysenko\\source\\repos\\RentBoltBot\\BoltBot\\BotService.cs",
+              "RelativeDocumentMoniker": "BoltBot\\BotService.cs",
+              "ToolTip": "C:\\Users\\DenysBorysenko\\source\\repos\\RentBoltBot\\BoltBot\\BotService.cs*",
+              "RelativeToolTip": "BoltBot\\BotService.cs*",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T14:14:39.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\DenysBorysenko\\source\\repos\\RentBoltBot\\BoltBot\\Program.cs",
               "RelativeDocumentMoniker": "BoltBot\\Program.cs",
               "ToolTip": "C:\\Users\\DenysBorysenko\\source\\repos\\RentBoltBot\\BoltBot\\Program.cs",
               "RelativeToolTip": "BoltBot\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-02T13:41:57.825Z",
               "EditorCaption": ""

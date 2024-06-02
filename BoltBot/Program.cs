@@ -1,10 +1,13 @@
-﻿namespace BoltBot
+﻿using Telegram.Bot;
+
+namespace BoltBot
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            BotService service = new ();
+            Console.ReadLine();
         }
     }
 }

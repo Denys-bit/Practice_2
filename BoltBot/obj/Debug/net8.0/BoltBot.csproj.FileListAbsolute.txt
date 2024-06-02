@@ -12,3 +12,7 @@ C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\refint
 C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\BoltBot.pdb
 C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\BoltBot.genruntimeconfig.cache
 C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\ref\BoltBot.dll
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\bin\Debug\net8.0\Telegram.Bot.dll
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\BoltBot.csproj.AssemblyReference.cache
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\BoltBot.csproj.Up2Date
