@@ -1,0 +1,14 @@
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\bin\Debug\net8.0\BoltBot.exe
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\bin\Debug\net8.0\BoltBot.deps.json
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\bin\Debug\net8.0\BoltBot.runtimeconfig.json
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\bin\Debug\net8.0\BoltBot.dll
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\bin\Debug\net8.0\BoltBot.pdb
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\BoltBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\BoltBot.AssemblyInfoInputs.cache
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\BoltBot.AssemblyInfo.cs
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\BoltBot.csproj.CoreCompileInputs.cache
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\BoltBot.dll
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\refint\BoltBot.dll
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\BoltBot.pdb
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\BoltBot.genruntimeconfig.cache
+C:\Users\DenysBorysenko\source\repos\RentBoltBot\BoltBot\obj\Debug\net8.0\ref\BoltBot.dll
