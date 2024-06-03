@@ -2,6 +2,7 @@
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace BoltBot
 {
@@ -36,7 +37,8 @@ namespace BoltBot
             {
                 new() { Command = "start", Description = "Запустити бота" },
                 new() { Command = "help", Description = "Показати допомогу" },
-                new() { Command = "info", Description = "Інформація про бота" }
+                new() { Command = "info", Description = "Інформація про бота" },
+                new() { Command = "share", Description = "Поділитись номером телефону" }
             };
 
             await botClient.SetMyCommandsAsync(commands);
@@ -58,13 +60,34 @@ namespace BoltBot
 
                     break;
                 case "/help":
-                    await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: "Доступні команди:\n/start - Запустити бота\n/help - Показати допомогу\n/info - Інформація про бота", cancellationToken: cancellationToken);
+                    await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: "Доступні команди:\n/start - Запустити бота\n/help - Показати допомогу\n/info - Інформація про бота\n/share - Поділитись контактами", cancellationToken: cancellationToken);
                     break;
                 case "/info":
                     await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: "Я інформаційний бот.", cancellationToken: cancellationToken);
                     break;
+                case "/share":
+                    await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: "Виберіть один з наявних варіантів...", cancellationToken: cancellationToken);
+                    if (message.Text == "/share")
+                    {
+                        // Створюємо клавіатуру з кнопкою "Share Contact"
+                        ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
+                        {
+                        new KeyboardButton[] { KeyboardButton.WithRequestContact("Поділитись контактним номером") }
+                    });
+                        replyKeyboardMarkup.ResizeKeyboard = true;
+
+                        // Відправляємо повідомлення з клавіатурою
+                        await botClient.SendTextMessageAsync
+                        (
+                            chatId: message.Chat.Id,
+                            text: "Поділіться контактними даними, щоб ми могли з вами зв'язатись!",
+                            replyMarkup: replyKeyboardMarkup,
+                            cancellationToken: cancellationToken
+                        );
+                    }
+                    break;
                 default:
-                    await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: "Невідома команда.", cancellationToken: cancellationToken);
+                    await botClient.SendTextMessageAsync(chatId: message.Chat.Id, replyMarkup: null, text: "Невідома команда.", cancellationToken: cancellationToken);
                     break;
             }
         }
