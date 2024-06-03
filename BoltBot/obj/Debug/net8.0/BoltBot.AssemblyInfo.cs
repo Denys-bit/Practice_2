@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BoltBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5371ec5ba2ea2befc90142c26cb5f4e25c1d823")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+163c487639de31a91b9b59294cd64fbc1cde9e02")]
 [assembly: System.Reflection.AssemblyProductAttribute("BoltBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BoltBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,12 +1,13 @@
 ﻿using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 
 namespace BoltBot
 {
     internal class BotService
     {
-        TelegramBotClient botClient = new("7478941975:AAF9nPwf8FWy2033T1XGD35M4Z-dhv4SeUM");
+        private readonly TelegramBotClient botClient = new("7478941975:AAF9nPwf8FWy2033T1XGD35M4Z-dhv4SeUM");
 
         public BotService()
         {
@@ -15,41 +16,57 @@ namespace BoltBot
 
         private async Task OnUpdate(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-
-            // Only process Message updates: https://core.telegram.org/bots/api#message
-            if (update.Message is not { } message)
+            if (update.Type != UpdateType.Message || update?.Message?.Text is null)
                 return;
 
-            // Only process text messages
-            if (message.Text is not { } messageText)
-                return;
-
+            var message = update.Message;
             var chatId = message.Chat.Id;
 
-            Console.WriteLine($"Received a '{messageText}' message in chat {chatId} from {message.Chat.FirstName}.");
+            Console.WriteLine($"Received a '{message.Text}' message in chat {chatId} from {message.Chat.FirstName}.");
 
-            // Echo received message text
-            Message sentMessage = await botClient.SendTextMessageAsync
-            (
-                chatId: chatId,
-                text: "You said:\n" + messageText,
-                cancellationToken: cancellationToken
-            );
-
-            await SetBotCommandsAsync(botClient);
-
+            if (message.Text.StartsWith("/"))
+            {
+                await HandleCommandAsync(botClient, message, cancellationToken);
+            }
         }
 
         static async Task SetBotCommandsAsync(ITelegramBotClient botClient)
         {
             var commands = new List<BotCommand>
-                {
-                    new() { Command = "start", Description = "Запустити бота" },
-                    new() { Command = "help", Description = "Показати допомогу" },
-                    new() { Command = "info", Description = "Інформація про бота" }
-                };
+            {
+                new() { Command = "start", Description = "Запустити бота" },
+                new() { Command = "help", Description = "Показати допомогу" },
+                new() { Command = "info", Description = "Інформація про бота" }
+            };
 
             await botClient.SetMyCommandsAsync(commands);
+        }
+
+        private async Task HandleCommandAsync(ITelegramBotClient botClient, Message message, CancellationToken cancellationToken)
+        {
+            var chatId = message.Chat.Id;
+
+            switch (message?.Text?.Split(' ')[0]) // Отримуємо команду без аргументів
+            {
+                case "/start":
+                    await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: $"Вітаю! 👋\nЯ готовий вам допомогти орендувати різні види транспорту. Введіть /help, щоб дізнатися більше.", cancellationToken: cancellationToken);
+
+                    Message message1 = await botClient.SendPhotoAsync(
+                    chatId: chatId,
+                    photo: InputFile.FromUri("https://img.freepik.com/free-vector/eco-transport-isometric-set-with-electric-car-scooter-bicycle-segway-gyro-isolated-decorative-icons_1284-26725.jpg"),
+                    cancellationToken: cancellationToken);
+
+                    break;
+                case "/help":
+                    await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: "Доступні команди:\n/start - Запустити бота\n/help - Показати допомогу\n/info - Інформація про бота", cancellationToken: cancellationToken);
+                    break;
+                case "/info":
+                    await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: "Я інформаційний бот.", cancellationToken: cancellationToken);
+                    break;
+                default:
+                    await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: "Невідома команда.", cancellationToken: cancellationToken);
+                    break;
+            }
         }
 
         private Task OnError(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
