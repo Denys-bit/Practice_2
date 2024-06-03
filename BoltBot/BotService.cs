@@ -6,7 +6,7 @@ namespace BoltBot
 {
     internal class BotService
     {
-        TelegramBotClient botClient = new TelegramBotClient("7478941975:AAF9nPwf8FWy2033T1XGD35M4Z-dhv4SeUM");
+        TelegramBotClient botClient = new("7478941975:AAF9nPwf8FWy2033T1XGD35M4Z-dhv4SeUM");
 
         public BotService()
         {
@@ -15,9 +15,11 @@ namespace BoltBot
 
         private async Task OnUpdate(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
+
             // Only process Message updates: https://core.telegram.org/bots/api#message
             if (update.Message is not { } message)
                 return;
+
             // Only process text messages
             if (message.Text is not { } messageText)
                 return;
@@ -28,11 +30,26 @@ namespace BoltBot
 
             // Echo received message text
             Message sentMessage = await botClient.SendTextMessageAsync
-                (
+            (
                 chatId: chatId,
                 text: "You said:\n" + messageText,
                 cancellationToken: cancellationToken
-                );
+            );
+
+            await SetBotCommandsAsync(botClient);
+
+        }
+
+        static async Task SetBotCommandsAsync(ITelegramBotClient botClient)
+        {
+            var commands = new List<BotCommand>
+                {
+                    new() { Command = "start", Description = "Запустити бота" },
+                    new() { Command = "help", Description = "Показати допомогу" },
+                    new() { Command = "info", Description = "Інформація про бота" }
+                };
+
+            await botClient.SetMyCommandsAsync(commands);
         }
 
         private Task OnError(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
